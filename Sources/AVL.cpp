@@ -38,22 +38,23 @@ NodoAVL* AVL::insertarRec(NodoAVL* nodo, Transaccion* transaccion)
         nodo->altura = 1 + altura(nodo->hijoDer);
     }
 
-    int balance = balancear(nodo);
+    int balance = balancear(nodo); //obtiene el balanceo del nodo padre
 
-    if(balance > 1 && transaccion->getMonto() < nodo->hijoIzq->transaccion->getMonto())
+
+    if(balance > 1 && transaccion->getMonto() < nodo->hijoIzq->transaccion->getMonto()) //si hay un desbalanceo LL o izquierda-izquierda
     {
         return rotarDer(nodo);
     }
-    if(balance < -1 && transaccion->getMonto() > nodo->hijoDer->transaccion->getMonto())
+    if(balance < -1 && transaccion->getMonto() > nodo->hijoDer->transaccion->getMonto()) //si hay un desbalanceo RR o derecha-derecha
     {
         return rotarIzq(nodo);
     }
-    if(balance > 1 && transaccion->getMonto() > nodo->dercho->transaccion->getMonto())
+    if(balance > 1 && transaccion->getMonto() > nodo->dercho->transaccion->getMonto()) //si hay un desbalanceo LR o izquierda-derecha
     {
         nodo->hijoIzq = rotarIzq(nodo->hijoDer);
         return rotarDer(nodo);
     }
-    if(balance < -1 && transaccion->getMonto() < nodo->hijoDer->transaccion->getMonto())
+    if(balance < -1 && transaccion->getMonto() < nodo->hijoDer->transaccion->getMonto()) //si hay un desbalanceo RL o derecha-izquierda
     {
         nodo->hijoDer = rotarDer(nodo->hijoDer);
         return rotarIzq(nodo);

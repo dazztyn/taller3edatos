@@ -9,6 +9,11 @@
 
 using namespace std;
 
+queue<Transaccion*> fraudulentas;
+queue<Cliente*> clientes;
+ABB arbolABB;
+AVL arbolAVL;
+int id = 1; // variable para probar el menu
 void ingresarTransaccion(){ //despliega la opcion 1 del menú
 
     cout << "Ingrese datos de cliente: " << endl;
@@ -27,42 +32,47 @@ void ingresarTransaccion(){ //despliega la opcion 1 del menú
     string ciudad; cin >> ciudad; cout << endl;
     
     cout << "Ingrese fecha (dd/mm/yyyy): ";
+    string hora; cin >> hora;
 
+    cout << "Ingrese hora (hh:mm:ss): ";            // cambiar para leer estos datos desde el archivo
+    int monto; cin >> monto; cout << endl;
+
+    Transaccion* transaccion = new Transaccion(id,c,ctaDest, monto, ciudad, fecha, hora);
+    arbolABB->insertar(transaccion);
+    arbolAVL->insertar(transaccion);
+
+    cout << "Transaccion correctamente ingresada." << endl;
 }
-
-
 
 void buscarTransaccion(){
 
     cout << "Ingresa id a buscar: ";
-    string id; cin >> id; cout << endl;
+    int id; cin >> id; cout << endl;
+    arbolAVL->buscarPorID(id);
+}
 
-    int idBuscada = stoi(id);
+void detectarFraudes(){         // cambiar logica para leer el limite desde txt o rectificar bien
+    int monto_limite;
+    cout << "Ingresa monto limite para detectar fraude: " << endl;
+    cin >> monto_limite; con << endl;
 
+    arbolABB->detectarFraude(monto_limite);
+}
 
-
-
+void generarInforme() //agregar logica para generar informe 
+{
+    cout << "Generando informe de todas las transacciones..." << endl;
 
 }
 
-
-void detectarFraudes(){
-
-    //recorrer abb
-}
-
-void generarInforme(){
-
-}
-
-void leerTransacciones(){
+void leerTransacciones(){ //logica para leer txt de transacciones y tambien para leer el de clientes 
     
 }
 
 void menuBanco(){
 
     cout << "-------------------------------" << endl;
-    cout << "         Menú del Banco        " << endl; cout << endl;
+    cout << "**********Menú del Banco**********" << endl; cout << endl;
     cout << "1) Ingresar Transaccion." << endl;
     cout << "2) Buscar Transaccion." << endl;
     cout << "3) Detectar Fraudes." << endl;
@@ -72,20 +82,31 @@ void menuBanco(){
 
     cout << ">";
 
-    string opt; cin >> opt; cout << endl;
+    int opt; cin >> opt; cout << endl;
 
+    switch(opt)
+    {
+        case 1:
+            ingresarTransaccion();
+            break;
+        case 2:
+            buscarTransaccion();
+            break;
+        case 3:
+            detectarFraudes();
+        case 4:
+            generarInforme();
+        case 5:
+            return;
+        default:
+            cout << "Error opcion incorrecta, intente nuevamente" << endl;
+    }
+
+    cout << endl;
 }
 
 int main()
 {
-    queue<Transaccion*> fraudulentas;
-    queue<Cliente*> clientes;
-    ABB arbolABB;
-    AVL arbolAVL;
-
-
-    
-
-
+    menuBanco();
     return 0;
 }
