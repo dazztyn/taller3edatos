@@ -76,7 +76,7 @@ NodoAVL* AVL::buscarRec(NodoAVL* nodo, int id)
 
 void AVL::buscarPorID(int id)
 {
-    NodoAVl* nodo =buscarRec(raiz, id);
+    NodoAVl* nodo = buscarRec(raiz, id);
     if(nodo != nullptr)
     {
         nodo->transaccion->mostrar();

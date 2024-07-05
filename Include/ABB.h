@@ -5,20 +5,21 @@ class ABB {
 private:
     Nodo* raiz;
 
-    Nodo* insertarRec(Nodo* nodo, Transaccion* trans);
+    Nodo* insertarRec(Nodo*, Transaccion*);
     //void inOrden(Nodo* nodo);
     //void preOrden(Nodo* nodo);
     //void postOrden(Nodo* nodo);
     //void eliminarArbol(Nodo* nodo);
-    void detectarFraudeRec(Nodo* nodo, int monto_limite);
+    void detectarFraudeRec(Nodo*, int);
 
 public:
-    ABB(Nodo*);
+    ABB();
     ~ABB();
 
-    void insertar(Transaccion* trans);
+    void insertar(Transaccion*);
     //void inOrden();
-    void detectarFraude(int monto_limite);
-    void destruir(Nodo* nodo);
+    void detectarFraude(int);
+    void procesarFraude();
+    void destruir(Nodo*);
 
 };

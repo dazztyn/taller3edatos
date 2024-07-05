@@ -16,7 +16,5 @@ public:
 
     string getNombre();
     string getRut();
-
-
-
+    void mostrar();
 };

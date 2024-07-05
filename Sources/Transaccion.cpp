@@ -45,4 +45,7 @@ string Transaccion::getHora(){
 
 void Transaccion::mostrar()
 {
+    cout<<"ID: " << id << ", Cliente Origen: ";
+    clienteOrigen->mostrar();
+    cout<<", Destino: " << cuentaDestino << ", Monto: " << monto << ", Ubicacion: " << ubicacion << ", Fecha: " << fecha << ",Hora: " << hora << endl;
 }

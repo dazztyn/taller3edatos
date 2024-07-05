@@ -9,12 +9,6 @@
 
 using namespace std;
 
-queue<Transaccion*> fraudulentas;
-queue<Cliente*> clientes;
-ABB arbolABB;
-AVL arbolAVL;
-
-
 void ingresarTransaccion(){ //despliega la opcion 1 del menú
 
     cout << "Ingrese datos de cliente: " << endl;
@@ -82,7 +76,12 @@ void menuBanco(){
 
 }
 
-int main(){
+int main()
+{
+    queue<Transaccion*> fraudulentas;
+    queue<Cliente*> clientes;
+    ABB arbolABB;
+    AVL arbolAVL;
 
 
     

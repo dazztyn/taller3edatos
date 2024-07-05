@@ -41,14 +41,26 @@ void ABB::detectarFraudeRec(Nodo* nodo, int monto_limite)
         return;
     }
 
-    if(nodo->trans->getMonto() > monto_limite)
+    if(nodo->transaccion->getMonto() > monto_limite)
     {
-        nodo->trans->mostrar();
+        nodo->transaccion->mostrar();
     }
 
     detectarFraudeRec(nodo->hijoIzq, monto_limite);
     detectarFraudeRec(nodo->hijoDer, monto_limite);
 }
+
+void ABB::procesarFraude()
+{
+    cout << "Procesando transacciones fraudulentas..." << endl;
+    while(!transaccionesSospechosas.empty())
+    {
+        Transaccion* transaccion = transaccionesSospechosas.front();
+        transaccion->mostrar();
+        transaccionesSospechosas.pop();
+    }
+}
+
 
 void ABB::destruir(Nodo* nodo)
 {
@@ -57,6 +69,7 @@ void ABB::destruir(Nodo* nodo)
         destruir(nodo->hijoDer);
         destruir(nodo->hijoDer);
         delete nodo;
+
     }
 }
 
