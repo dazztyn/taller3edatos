@@ -23,4 +23,5 @@ public:
     string getUbicacion();
     string getFecha();
     string getHora();
+    void mostrar();
 };

@@ -1,14 +1,18 @@
 #include <iostream>
 #include <queue>
-#include "Nodo.h"
+#include "Nodo.h" //nodo para el arbol ABB
+#include "NodoAVL.h" //nodo para el arbol avl
 #include "Transaccion.h"
 #include "Cliente.h"
 #include "ABB.h"
+#include "AVL.h"
+
 using namespace std;
 
 queue<Transaccion*> fraudulentas;
 queue<Cliente*> clientes;
-ABB arbol;
+ABB arbolABB;
+AVL arbolAVL;
 
 
 void ingresarTransaccion(){ //despliega la opcion 1 del menú

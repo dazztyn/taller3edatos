@@ -8,4 +8,4 @@ Nodo::Nodo(Transaccion* trans){
 
 }
 
-Nodo::~Nodo() {}
+Nodo::~Nodo() {delete trans};

@@ -11,6 +11,38 @@ Transaccion::Transaccion(int id, string cuentaOrigen, string cuentaDestino, int 
     this -> fecha = fecha;
     this -> hora = hora;
 
+}
+Transaccion::~Transaccion(){}
+
+int Transaccion::getID(){
+    return id;
+}
+
+string Transaccion::getCtaDestino(){
+    return cuentaDestino;
+}
+
+string Transaccion::getCtaOrigen(){
+    return cuentaOrigen;
+}
+
+int Transaccion::getMonto(){
+    return monto;
+}
+
+string Transaccion::getUbicacion(){
+    return ubicacion;
+}
+
+string Transaccion::getFecha(){
+    return fecha;
+}
+
+string Transaccion::getHora(){
+    return hora;
+}
 
 
+void Transaccion::mostrar()
+{
 }
