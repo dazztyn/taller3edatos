@@ -16,7 +16,7 @@ private:
     Nodo* buscarRec(Nodo*,int);
 
 public:
-    ABB();
+    ABB(Nodo*);
     ~ABB();
 
     void insertar(Transaccion*);
@@ -25,5 +25,6 @@ public:
     void procesarFraude();
     Transaccion* buscar(int);
     void destruir(Nodo*);
-
+    void generarReporte(Nodo*);
+    void generarReporte();
 };

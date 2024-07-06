@@ -16,7 +16,7 @@ void ABB::insertar(Transaccion* transaccion)
 
 Nodo* ABB::insertarRec(Nodo* nodo, Transaccion* transaccion){ //ingresa un nodo al árbol de transacciones
 
-    if(raiz == nullptr){
+    if(nodo == nullptr){
          return new Nodo(transaccion);
     }
 
@@ -53,12 +53,35 @@ void ABB::detectarFraudeRec(Nodo* nodo, int monto_limite)
 void ABB::procesarFraude()
 {
     cout << "Procesando transacciones fraudulentas..." << endl;
-    while(!transaccionesSospechosas.empty())
+    while(!transaccionesFraudulentas.empty())
     {
-        Transaccion* transaccion = transaccionesSospechosas.front();
+        Transaccion* transaccion = transaccionesFraudulentas.front();
         transaccion->mostrar();
-        transaccionesSospechosas.pop();
+        transaccionesFraudulentas.pop();
     }
+}
+
+void ABB::generarReporte(Nodo* nodo) {
+    
+    cout << "Transacción ID: " << nodo -> transaccion->getID() << endl;
+    cout << "Cuenta Origen: " << nodo -> transaccion->getCtaOrigen() << endl;
+    cout << "Cuenta Destino: " << nodo -> transaccion->getCtaDestino() << endl;
+    cout << "Monto: " << nodo->transaccion-> getMonto() << endl;
+    cout << "Ubicación:" << nodo->transaccion->getUbicacion() << endl;
+    cout << "Fecha: " << nodo->transaccion->getFecha() << endl;
+    cout << "Hora: " << nodo->transaccion->getHora() << endl;
+    cout << "-------------------------"<<endl;
+    
+    generarReporte(nodo->hijoIzq);
+    generarReporte(nodo->hijoDer);
+}
+
+void ABB::generarReporte() {
+    cout << "-------------------------"<<endl;
+    cout << "Transacciones NO FRAUDULENTAS" << endl;
+    generarReporte(raiz);
+    cout << "Transacciones FRAUDULENTAS" << endl;
+    //generarReportesFraudulentos(raiz);
 }
 
 
