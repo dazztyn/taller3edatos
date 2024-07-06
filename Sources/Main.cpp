@@ -38,8 +38,8 @@ void ingresarTransaccion(){ //despliega la opcion 1 del menú
     cout << "Ingrese hora (hh:mm): ";            // cambiar para leer estos datos desde el archivo
     string hora; cin >> hora; cout <<endl;
 
-    cout <<"Ingrese un monto: ";
-    int monto; cin >> monto; cout << endl;
+    cout <<"Ingrese un monto: (digite solo los numeros ej: 10000 en vez de 10.000)";
+    string monto; cin >> monto; cout << endl;
 
     Transaccion* transaccion = new Transaccion(id++,c,ctaDest, monto, ciudad, fecha, hora);
     arbolABB.insertar(transaccion);
