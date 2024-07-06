@@ -16,7 +16,7 @@ private:
     Nodo* buscarRec(Nodo*,int);
 
 public:
-    ABB(Nodo*);
+    ABB();
     ~ABB();
 
     void insertar(Transaccion*);

@@ -1,6 +1,6 @@
 #include "AVL.h"
 
-AVL::AVL(Nodo* raiz)
+AVL::AVL()
 {
     this -> raiz = nullptr;
 
@@ -49,7 +49,7 @@ NodoAVL* AVL::insertarRec(NodoAVL* nodo, Transaccion* transaccion)
     {
         return rotarIzq(nodo);
     }
-    if(balance > 1 && transaccion->getMonto() > nodo->dercho->transaccion->getMonto()) //si hay un desbalanceo LR o izquierda-derecha
+    if(balance > 1 && transaccion->getMonto() > nodo->hijoDer->transaccion->getMonto()) //si hay un desbalanceo LR o izquierda-derecha
     {
         nodo->hijoIzq = rotarIzq(nodo->hijoDer);
         return rotarDer(nodo);
@@ -77,14 +77,7 @@ NodoAVL* AVL::buscarRec(NodoAVL* nodo, int id)
 
 void AVL::buscarPorID(int id)
 {
-    NodoAVl* nodo = buscarRec(raiz, id);
-    if(nodo != nullptr)
-    {
-        nodo->transaccion->mostrar();
-    }else
-    {
-        cout << "No se pudo encontrar la transaccion" <<endl;
-    }
+
 }
 
 int AVL::altura(NodoAVL* nodo)

@@ -1,6 +1,6 @@
 #include "ABB.h"
 
-ABB::ABB(Nodo* raiz){
+ABB::ABB(){
 
     this -> raiz = nullptr;
 
