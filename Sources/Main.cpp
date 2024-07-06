@@ -103,6 +103,7 @@ void menuBanco(){
             case 4:
                 generarInforme();
             case 5:
+                cout<< "Saliendo... Hasta luego!"
                 return;
             default:
                 cout << "Error opcion incorrecta, intente nuevamente" << endl;
