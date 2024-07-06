@@ -13,4 +13,4 @@ public:
     NodoAVL(Transaccion*);
     ~NodoAVL();
 
-}
+};

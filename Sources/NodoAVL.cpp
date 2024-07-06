@@ -1,12 +1,12 @@
 #include "NodoAVL.h"
 
-NodoAVL::NodoAVL(Transaccion* trans)
+NodoAVL::NodoAVL(Transaccion* transaccion)
 {
-    this -> transaccion = trans;
+    this -> transaccion = transaccion;
     this -> hijoDer = nullptr;
     this -> hijoIzq = nullptr;
     this -> altura = 1;         // parte de 1 para verificar que este balanceado             
 
 };
 
-NodoAVL::~NodoAVL() {delete trans}; // destructor del nodo
+NodoAVL::~NodoAVL() {delete transaccion;}; // destructor del nodo
